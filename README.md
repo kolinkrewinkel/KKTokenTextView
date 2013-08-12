@@ -1,13 +1,12 @@
 KKTokenTextView
 ===============
 
-UITextView subclass which supports inline tokens and lexical corrections.
+UITextView subclass which supports inline tokens and puncutational corrections.
+
+This was designed for one particular use case (which the demo utilizes). It should support many others as well, however it wouldn't surprise me if the API did not work well for other models. Feel free to nudge me about issues that you have and absolutely do not hesitate to fork and submit a pull request.
 
 **License**  
 See LICENSE.md.
-
-**Note**  
-This was designed for one particular use case (which the demo utilizes). It should support many others as well, however it wouldn't surprise me if the API did not work well for other models. Feel free to nudge me about issues that you have and absolutely do not hesitate to fork and submit a pull request.
 
 **Usage**      
 
