@@ -40,7 +40,7 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
 - (void)commonInitialization
 {
     self.delegate = self;
-    self.correctsGrammar = YES;
+    self.correctsPunctuation = YES;
 
     self.tokens = [[NSMutableSet alloc] init];
     self.selectedTokens = [[NSMutableSet alloc] init];
@@ -141,7 +141,7 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
         self.selectedRange = NSMakeRange(location, 0);
     };
 
-    if (self.correctsGrammar)
+    if (self.correctsPunctuation)
     {
         __weak typeof(self) weakSelf = self;
         dispatch_async([NSString KK_sharedPolishQueue], ^{

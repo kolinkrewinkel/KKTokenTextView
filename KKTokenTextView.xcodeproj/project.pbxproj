@@ -14,8 +14,6 @@
 		33B456C417B893EE007A3E6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456B417B893EE007A3E6E /* Foundation.framework */; };
 		33B456C617B893EE007A3E6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456C517B893EE007A3E6E /* UIKit.framework */; };
 		33B456C917B893EE007A3E6E /* libKKTokenTextView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456B117B893EE007A3E6E /* libKKTokenTextView.a */; };
-		33B456CF17B893EE007A3E6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33B456CD17B893EE007A3E6E /* InfoPlist.strings */; };
-		33B456D117B893EE007A3E6E /* KKTokenTextViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B456D017B893EE007A3E6E /* KKTokenTextViewTests.m */; };
 		33B456E717B895EC007A3E6E /* libDickens.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456E217B895C6007A3E6E /* libDickens.a */; };
 /* End PBXBuildFile section */
 
@@ -72,9 +70,6 @@
 		33B456C117B893EE007A3E6E /* KKTokenTextViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KKTokenTextViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B456C217B893EE007A3E6E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		33B456C517B893EE007A3E6E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		33B456CC17B893EE007A3E6E /* KKTokenTextViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KKTokenTextViewTests-Info.plist"; sourceTree = "<group>"; };
-		33B456CE17B893EE007A3E6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		33B456D017B893EE007A3E6E /* KKTokenTextViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKTokenTextViewTests.m; sourceTree = "<group>"; };
 		33B456DB17B895C6007A3E6E /* Dickens.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dickens.xcodeproj; path = External/Dickens/Dickens.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				33B456B617B893EE007A3E6E /* KKTokenTextView */,
-				33B456CA17B893EE007A3E6E /* KKTokenTextViewTests */,
 				33B456B317B893EE007A3E6E /* Frameworks */,
 				33B456B217B893EE007A3E6E /* Products */,
 			);
@@ -146,24 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				33B456B817B893EE007A3E6E /* KKTokenTextView-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		33B456CA17B893EE007A3E6E /* KKTokenTextViewTests */ = {
-			isa = PBXGroup;
-			children = (
-				33B456D017B893EE007A3E6E /* KKTokenTextViewTests.m */,
-				33B456CB17B893EE007A3E6E /* Supporting Files */,
-			);
-			path = KKTokenTextViewTests;
-			sourceTree = "<group>";
-		};
-		33B456CB17B893EE007A3E6E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				33B456CC17B893EE007A3E6E /* KKTokenTextViewTests-Info.plist */,
-				33B456CD17B893EE007A3E6E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -278,7 +254,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33B456CF17B893EE007A3E6E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +272,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33B456D117B893EE007A3E6E /* KKTokenTextViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,17 +284,6 @@
 			targetProxy = 33B456C717B893EE007A3E6E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		33B456CD17B893EE007A3E6E /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				33B456CE17B893EE007A3E6E /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		33B456D217B893EE007A3E6E /* Debug */ = {

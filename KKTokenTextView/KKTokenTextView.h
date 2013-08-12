@@ -1,5 +1,5 @@
 //
-//  KKTokentextField.h
+//  KKTokenTextField.h
 //  KKTokenTextView
 //
 //  Created by Kolin Krewinkel on 8/2/13.
@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger, KKTokenTextViewMutationType) {
 #pragma mark - Properties
 
 @property (nonatomic, weak) id <STRTokenTextViewDelegate> tokenizationDelegate;
-@property (nonatomic) BOOL correctsGrammar;
+@property (nonatomic) BOOL correctsPunctuation;
 
 @property (nonatomic, copy) UIFont *typingFont;
 @property (nonatomic, copy) UIColor *typingColor;
