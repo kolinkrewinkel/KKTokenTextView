@@ -10,11 +10,10 @@
 		33B456B517B893EE007A3E6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456B417B893EE007A3E6E /* Foundation.framework */; };
 		33B456BA17B893EE007A3E6E /* KKTokenTextView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 33B456B917B893EE007A3E6E /* KKTokenTextView.h */; };
 		33B456BC17B893EE007A3E6E /* KKTokenTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B456BB17B893EE007A3E6E /* KKTokenTextView.m */; };
-		33B456C317B893EE007A3E6E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456C217B893EE007A3E6E /* XCTest.framework */; };
 		33B456C417B893EE007A3E6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456B417B893EE007A3E6E /* Foundation.framework */; };
-		33B456C617B893EE007A3E6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456C517B893EE007A3E6E /* UIKit.framework */; };
 		33B456C917B893EE007A3E6E /* libKKTokenTextView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456B117B893EE007A3E6E /* libKKTokenTextView.a */; };
 		33B456E717B895EC007A3E6E /* libDickens.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456E217B895C6007A3E6E /* libDickens.a */; };
+		33B456E917B89A1A007A3E6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456E817B89A1A007A3E6E /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,9 +67,8 @@
 		33B456B917B893EE007A3E6E /* KKTokenTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKTokenTextView.h; sourceTree = "<group>"; };
 		33B456BB17B893EE007A3E6E /* KKTokenTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKTokenTextView.m; sourceTree = "<group>"; };
 		33B456C117B893EE007A3E6E /* KKTokenTextViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KKTokenTextViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		33B456C217B893EE007A3E6E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		33B456C517B893EE007A3E6E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		33B456DB17B895C6007A3E6E /* Dickens.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dickens.xcodeproj; path = External/Dickens/Dickens.xcodeproj; sourceTree = "<group>"; };
+		33B456E817B89A1A007A3E6E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B456E917B89A1A007A3E6E /* UIKit.framework in Frameworks */,
 				33B456E717B895EC007A3E6E /* libDickens.a in Frameworks */,
 				33B456B517B893EE007A3E6E /* Foundation.framework in Frameworks */,
 			);
@@ -87,9 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33B456C317B893EE007A3E6E /* XCTest.framework in Frameworks */,
 				33B456C917B893EE007A3E6E /* libKKTokenTextView.a in Frameworks */,
-				33B456C617B893EE007A3E6E /* UIKit.framework in Frameworks */,
 				33B456C417B893EE007A3E6E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,8 +117,7 @@
 			children = (
 				33B456DB17B895C6007A3E6E /* Dickens.xcodeproj */,
 				33B456B417B893EE007A3E6E /* Foundation.framework */,
-				33B456C217B893EE007A3E6E /* XCTest.framework */,
-				33B456C517B893EE007A3E6E /* UIKit.framework */,
+				33B456E817B89A1A007A3E6E /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
