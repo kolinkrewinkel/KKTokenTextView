@@ -143,10 +143,9 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
 
     if (self.correctsGrammar)
     {
-        @weakify(self);
-
+        __weak typeof(self) weakSelf = self;
         dispatch_async([NSString KK_sharedPolishQueue], ^{
-            @strongify(self);
+            typeof(self) selfRef = weakSelf;
 
             NSDictionary *correctionTextCheckingResults = [mutableString KK_correctionTextCheckingResults];
             NSMutableString *string = correctionTextCheckingResults[KKOperatedString];
@@ -172,7 +171,7 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
                 charactersChanged += change;
                 offset -= change;
 
-                [self shiftTokensForResult:tripleDotResult offset:-change];
+                [selfRef shiftTokensForResult:tripleDotResult offset:-change];
             }
 
             for (NSTextCheckingResult *hyphenResult in correctionTextCheckingResults[KKEmDashCorrections]) {
@@ -185,7 +184,7 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
                 charactersChanged += change;
                 offset -= change;
 
-                [self shiftTokensForResult:hyphenResult offset:-change];
+                [selfRef shiftTokensForResult:hyphenResult offset:-change];
             }
 
             for (NSTextCheckingResult *singleQuoteResult in correctionTextCheckingResults[KKApostropheCorrections]) {
@@ -271,7 +270,7 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
         self.attributedText = mutableAttributedString;
     }
 
-    if ([self.tokenizationDelegate respondsToSelector:@selector(textView:didAddToken:)])
+    if ([self.tokenizationDelegate respondsToSelector:@selector(textView:didAddToken:mutationType:)])
     {
         [self.tokenizationDelegate textView:self didAddToken:token mutationType:KKTokenTextViewMutationTypeManual];
     }
@@ -284,7 +283,7 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
 
     [self insertStringIntoAttributedText:@" " atIndex:EndOfRange(range) moveCursor:YES];
 
-    if ([self.tokenizationDelegate respondsToSelector:@selector(textView:didAddToken:)])
+    if ([self.tokenizationDelegate respondsToSelector:@selector(textView:didAddToken:mutationType:)])
     {
         [self.tokenizationDelegate textView:self didAddToken:token mutationType:KKTokenTextViewMutationTypeRangeMatching];
     }
@@ -311,11 +310,11 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
 
 - (void)shiftTokensForResult:(NSTextCheckingResult *)textCheckingResult offset:(NSInteger)offset
 {
-    @weakify(self);
+    __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        @strongify(self);
+        typeof(self) selfRef = weakSelf;
 
-        for (KKTextToken *token in [self tokensAfterCharacterIndex:textCheckingResult.range.location])
+        for (KKTextToken *token in [selfRef tokensAfterCharacterIndex:textCheckingResult.range.location])
         {
             token.range = ShiftRange(token.range, offset);
         }
