@@ -509,6 +509,11 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
 
 #pragma mark - UIResponder
 
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
     KKTextToken *firstTokenSelected = [self.selectedTokens anyObject];

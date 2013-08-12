@@ -434,6 +434,7 @@
 				);
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../\"";
 				INFOPLIST_FILE = "KKTokenTextViewDemo/KKTokenTextViewDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -449,6 +450,7 @@
 				GCC_PREFIX_HEADER = "KKTokenTextViewDemo/KKTokenTextViewDemo-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../\"";
 				INFOPLIST_FILE = "KKTokenTextViewDemo/KKTokenTextViewDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -482,6 +484,7 @@
 				33B4571C17B89AAF007A3E6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
