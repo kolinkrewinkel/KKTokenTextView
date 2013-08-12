@@ -24,6 +24,9 @@
     self.textView.tokenizationDelegate = self;
     self.textView.contentInset = UIEdgeInsetsMake(20.f, 0.f, 0.f, 0.f);
     self.view = self.textView;
+
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Protip", nil) message:NSLocalizedString(@"Tap/hit enter to \"make\" a token. In this demo, it's for URLs. In the future, I may make it so that the text view passively calls the delegate for matches so the return key can be switched to the \"Done\" type, which is a little more intuitive, like in editing mode.\nThis demo also showcases Dickens, another library of mine which handles autocorrecting punctuation to the correct type.", nil) delegate:nil cancelButtonTitle:@"thx man" otherButtonTitles:nil];
+    [alertView show];
 }
 
 - (void)viewWillAppear:(BOOL)animated
