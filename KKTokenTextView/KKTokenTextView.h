@@ -13,7 +13,7 @@ typedef NS_ENUM(NSInteger, KKTokenTextViewMutationType) {
     KKTokenTextViewMutationTypeManual
 };
 
-@protocol STRTokenTextViewDelegate <NSObject>
+@protocol KKTokenTextViewDelegate <NSObject>
 
 @required
 - (NSRange)textView:(KKTokenTextView *)textView lastRangeOfStringToTokenize:(NSString *)string keyPathIntention:(NSString **)keyPath;
@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, KKTokenTextViewMutationType) {
 
 #pragma mark - Properties
 
-@property (nonatomic, weak) id <STRTokenTextViewDelegate> tokenizationDelegate;
+@property (nonatomic, weak) id <KKTokenTextViewDelegate> tokenizationDelegate;
 @property (nonatomic) BOOL correctsPunctuation;
 
 @property (nonatomic, copy) UIFont *typingFont;

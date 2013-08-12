@@ -12,6 +12,15 @@
 		33B456BC17B893EE007A3E6E /* KKTokenTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B456BB17B893EE007A3E6E /* KKTokenTextView.m */; };
 		33B456E717B895EC007A3E6E /* libDickens.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456E217B895C6007A3E6E /* libDickens.a */; };
 		33B456E917B89A1A007A3E6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456E817B89A1A007A3E6E /* UIKit.framework */; };
+		33B456EF17B89AAF007A3E6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456B417B893EE007A3E6E /* Foundation.framework */; };
+		33B456F117B89AAF007A3E6E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456F017B89AAF007A3E6E /* CoreGraphics.framework */; };
+		33B456F217B89AAF007A3E6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456E817B89A1A007A3E6E /* UIKit.framework */; };
+		33B456F817B89AAF007A3E6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33B456F617B89AAF007A3E6E /* InfoPlist.strings */; };
+		33B456FA17B89AAF007A3E6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B456F917B89AAF007A3E6E /* main.m */; };
+		33B456FE17B89AAF007A3E6E /* TVDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B456FD17B89AAF007A3E6E /* TVDAppDelegate.m */; };
+		33B4570417B89AAF007A3E6E /* TVDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B4570317B89AAF007A3E6E /* TVDViewController.m */; };
+		33B4570617B89AAF007A3E6E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B4570517B89AAF007A3E6E /* Images.xcassets */; };
+		33B4572017B89AEE007A3E6E /* libKKTokenTextView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B456B117B893EE007A3E6E /* libKKTokenTextView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +68,17 @@
 		33B456BB17B893EE007A3E6E /* KKTokenTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKTokenTextView.m; sourceTree = "<group>"; };
 		33B456DB17B895C6007A3E6E /* Dickens.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dickens.xcodeproj; path = External/Dickens/Dickens.xcodeproj; sourceTree = "<group>"; };
 		33B456E817B89A1A007A3E6E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		33B456EE17B89AAF007A3E6E /* KKTokenTextViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KKTokenTextViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33B456F017B89AAF007A3E6E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		33B456F517B89AAF007A3E6E /* KKTokenTextViewDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KKTokenTextViewDemo-Info.plist"; sourceTree = "<group>"; };
+		33B456F717B89AAF007A3E6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		33B456F917B89AAF007A3E6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		33B456FB17B89AAF007A3E6E /* KKTokenTextViewDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KKTokenTextViewDemo-Prefix.pch"; sourceTree = "<group>"; };
+		33B456FC17B89AAF007A3E6E /* TVDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVDAppDelegate.h; sourceTree = "<group>"; };
+		33B456FD17B89AAF007A3E6E /* TVDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVDAppDelegate.m; sourceTree = "<group>"; };
+		33B4570217B89AAF007A3E6E /* TVDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVDViewController.h; sourceTree = "<group>"; };
+		33B4570317B89AAF007A3E6E /* TVDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVDViewController.m; sourceTree = "<group>"; };
+		33B4570517B89AAF007A3E6E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +92,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		33B456EB17B89AAF007A3E6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33B4572017B89AEE007A3E6E /* libKKTokenTextView.a in Frameworks */,
+				33B456F117B89AAF007A3E6E /* CoreGraphics.framework in Frameworks */,
+				33B456F217B89AAF007A3E6E /* UIKit.framework in Frameworks */,
+				33B456EF17B89AAF007A3E6E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -79,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				33B456B617B893EE007A3E6E /* KKTokenTextView */,
+				33B456F317B89AAF007A3E6E /* KKTokenTextViewDemo */,
 				33B456B317B893EE007A3E6E /* Frameworks */,
 				33B456B217B893EE007A3E6E /* Products */,
 			);
@@ -88,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				33B456B117B893EE007A3E6E /* libKKTokenTextView.a */,
+				33B456EE17B89AAF007A3E6E /* KKTokenTextViewDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,6 +131,7 @@
 				33B456DB17B895C6007A3E6E /* Dickens.xcodeproj */,
 				33B456B417B893EE007A3E6E /* Foundation.framework */,
 				33B456E817B89A1A007A3E6E /* UIKit.framework */,
+				33B456F017B89AAF007A3E6E /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -130,6 +164,30 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		33B456F317B89AAF007A3E6E /* KKTokenTextViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				33B456FC17B89AAF007A3E6E /* TVDAppDelegate.h */,
+				33B456FD17B89AAF007A3E6E /* TVDAppDelegate.m */,
+				33B4570217B89AAF007A3E6E /* TVDViewController.h */,
+				33B4570317B89AAF007A3E6E /* TVDViewController.m */,
+				33B4570517B89AAF007A3E6E /* Images.xcassets */,
+				33B456F417B89AAF007A3E6E /* Supporting Files */,
+			);
+			path = KKTokenTextViewDemo;
+			sourceTree = "<group>";
+		};
+		33B456F417B89AAF007A3E6E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33B456F517B89AAF007A3E6E /* KKTokenTextViewDemo-Info.plist */,
+				33B456F617B89AAF007A3E6E /* InfoPlist.strings */,
+				33B456F917B89AAF007A3E6E /* main.m */,
+				33B456FB17B89AAF007A3E6E /* KKTokenTextViewDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,6 +208,23 @@
 			productReference = 33B456B117B893EE007A3E6E /* libKKTokenTextView.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		33B456ED17B89AAF007A3E6E /* KKTokenTextViewDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33B4571A17B89AAF007A3E6E /* Build configuration list for PBXNativeTarget "KKTokenTextViewDemo" */;
+			buildPhases = (
+				33B456EA17B89AAF007A3E6E /* Sources */,
+				33B456EB17B89AAF007A3E6E /* Frameworks */,
+				33B456EC17B89AAF007A3E6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KKTokenTextViewDemo;
+			productName = KKTokenTextViewDemo;
+			productReference = 33B456EE17B89AAF007A3E6E /* KKTokenTextViewDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -165,6 +240,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 33B456A817B893EE007A3E6E;
 			productRefGroup = 33B456B217B893EE007A3E6E /* Products */;
@@ -178,6 +254,7 @@
 			projectRoot = "";
 			targets = (
 				33B456B017B893EE007A3E6E /* KKTokenTextView */,
+				33B456ED17B89AAF007A3E6E /* KKTokenTextViewDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -206,6 +283,18 @@
 		};
 /* End PBXReferenceProxy section */
 
+/* Begin PBXResourcesBuildPhase section */
+		33B456EC17B89AAF007A3E6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33B4570617B89AAF007A3E6E /* Images.xcassets in Resources */,
+				33B456F817B89AAF007A3E6E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		33B456AD17B893EE007A3E6E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -215,7 +304,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		33B456EA17B89AAF007A3E6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33B4570417B89AAF007A3E6E /* TVDViewController.m in Sources */,
+				33B456FA17B89AAF007A3E6E /* main.m in Sources */,
+				33B456FE17B89AAF007A3E6E /* TVDAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		33B456F617B89AAF007A3E6E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33B456F717B89AAF007A3E6E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		33B456D217B893EE007A3E6E /* Debug */ = {
@@ -310,6 +420,40 @@
 			};
 			name = Release;
 		};
+		33B4571B17B89AAF007A3E6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KKTokenTextViewDemo/KKTokenTextViewDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../\"";
+				INFOPLIST_FILE = "KKTokenTextViewDemo/KKTokenTextViewDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		33B4571C17B89AAF007A3E6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KKTokenTextViewDemo/KKTokenTextViewDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../\"";
+				INFOPLIST_FILE = "KKTokenTextViewDemo/KKTokenTextViewDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -330,6 +474,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		33B4571A17B89AAF007A3E6E /* Build configuration list for PBXNativeTarget "KKTokenTextViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33B4571B17B89AAF007A3E6E /* Debug */,
+				33B4571C17B89AAF007A3E6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
