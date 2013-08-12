@@ -1,0 +1,3 @@
+[submodule "External/Dickens"]
+	path = External/Dickens
+	url = https://github.com/kolinkrewinkel/Dickens.git
