@@ -135,10 +135,8 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
     [mutableString replaceCharactersInRange:range withString:text];
 
     STRTokenTextViewAttributedTextFinalizingBlock finalizeBlock = ^(NSString *newText) {
-        NSUInteger location = self.selectedRange.location + offset;
-
         self.attributedText = [[NSAttributedString alloc] initWithString:newText];
-        self.selectedRange = NSMakeRange(location, 0);
+        self.selectedRange = NSMakeRange(self.selectedRange.location + offset, 0);
     };
 
     if (self.correctsPunctuation)
@@ -150,19 +148,21 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
             NSDictionary *correctionTextCheckingResults = [mutableString KK_correctionTextCheckingResults];
             NSMutableString *string = correctionTextCheckingResults[KKOperatedString];
 
-            for (NSTextCheckingResult *quoteResult in correctionTextCheckingResults[KKSingleQuoteCorrections]) {
+            for (NSTextCheckingResult *quoteResult in correctionTextCheckingResults[KKSingleQuoteCorrections])
+            {
                 NSString *content = [string substringWithRange:NSMakeRange(quoteResult.range.location + 1, quoteResult.range.length - 2)]; // Quoted content
                 [string replaceCharactersInRange:quoteResult.range withString:[NSString KK_wrapString:content withOpeningString:KKCharacterLeftSingleQuotationMark closingString:KKCharacterRightSingleQuotationMark]]; // Replace dumb single quotes.
             }
 
-            for (NSTextCheckingResult *quoteResult in correctionTextCheckingResults[KKDoubleQuoteCorrections]) {
+            for (NSTextCheckingResult *quoteResult in correctionTextCheckingResults[KKDoubleQuoteCorrections])
+            {
                 NSString *content = [string substringWithRange:NSMakeRange(quoteResult.range.location + 1, quoteResult.range.length - 2)]; // Quoted content
                 [string replaceCharactersInRange:quoteResult.range withString:[NSString KK_wrapString:content withOpeningString:KKCharacterLeftDoubleQuotationMark closingString:KKCharacterRightDoubleQuotationMark]]; // Replace dumb double quotes.
             }
 
             NSInteger charactersChanged = 0;
-            for (NSTextCheckingResult *tripleDotResult in correctionTextCheckingResults[KKEllipsisCorrections]) {
-
+            for (NSTextCheckingResult *tripleDotResult in correctionTextCheckingResults[KKEllipsisCorrections])
+            {
                 // Because we're actually mutating the string we used to find the ranges, we need to make sure that the ranges we use accumulate/are concious of the new positions.
                 [string replaceCharactersInRange:NSMakeRange(tripleDotResult.range.location - charactersChanged, tripleDotResult.range.length) withString:KKCharacterEllipsis];
 
@@ -174,11 +174,13 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
                 [selfRef shiftTokensForResult:tripleDotResult offset:-change];
             }
 
-            for (NSTextCheckingResult *hyphenResult in correctionTextCheckingResults[KKEmDashCorrections]) {
+            for (NSTextCheckingResult *hyphenResult in correctionTextCheckingResults[KKEmDashCorrections])
+            {
                 [string replaceCharactersInRange:hyphenResult.range withString:KKCharacterEmDash];
             }
 
-            for (NSTextCheckingResult *hyphenResult in correctionTextCheckingResults[KKEnDashCorrections]) {
+            for (NSTextCheckingResult *hyphenResult in correctionTextCheckingResults[KKEnDashCorrections])
+            {
                 [string replaceCharactersInRange:NSMakeRange(hyphenResult.range.location - charactersChanged, hyphenResult.range.length) withString:KKCharacterEnDash];
                 NSInteger change = hyphenResult.range.length - KKCharacterEnDash.length;
                 charactersChanged += change;
@@ -187,7 +189,8 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
                 [selfRef shiftTokensForResult:hyphenResult offset:-change];
             }
 
-            for (NSTextCheckingResult *singleQuoteResult in correctionTextCheckingResults[KKApostropheCorrections]) {
+            for (NSTextCheckingResult *singleQuoteResult in correctionTextCheckingResults[KKApostropheCorrections])
+            {
                 [string replaceCharactersInRange:singleQuoteResult.range withString:KKCharacterApostrophe];
             }
 
@@ -210,9 +213,14 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
 {
     NSString *text = [self.attributedText.string substringToIndex:location];
     NSString *keyPath = nil;
-    NSRange tokenRange = [self.tokenizationDelegate textView:self lastRangeOfStringToTokenize:text keyPathIntention:&keyPath];
+    NSRange tokenRange = NSMakeRange(0, 0);
 
-    if (tokenRange.length > 0 && [self tokensContainedInRange:tokenRange].count == 0)
+    if ([self.tokenizationDelegate respondsToSelector:@selector(textView:lastRangeOfStringToTokenize:keyPathIntention:)])
+    {
+        tokenRange = [self.tokenizationDelegate textView:self lastRangeOfStringToTokenize:text keyPathIntention:&keyPath];
+    }
+
+    if (tokenRange.length > 0 && tokenRange.location != NSNotFound && [self tokensContainedInRange:tokenRange].count == 0)
     {
         [self addTokenWithRange:tokenRange keyPathDerivation:keyPath];
     }

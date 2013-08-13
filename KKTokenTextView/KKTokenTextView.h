@@ -14,14 +14,21 @@ typedef NS_ENUM(NSInteger, KKTokenTextViewMutationType) {
 };
 
 @protocol KKTokenTextViewDelegate <NSObject>
-
 @required
+
+#pragma mark Token Management
 - (NSRange)textView:(KKTokenTextView *)textView lastRangeOfStringToTokenize:(NSString *)string keyPathIntention:(NSString **)keyPath;
-- (NSDictionary *)textView:(KKTokenTextView *)textView attributesForToken:(KKTextToken *)token;
-- (NSArray *)textView:(KKTokenTextView *)textView menuItemsForToken:(KKTextToken *)token;
 - (NSString *)textView:(KKTokenTextView *)textView tokenKeyPathForTextInsertion:(KKTextToken *)token;
 
+#pragma mark Text Attributes
+- (NSDictionary *)textView:(KKTokenTextView *)textView attributesForToken:(KKTextToken *)token;
+
 @optional
+#pragma mark Menu Items
+- (NSArray *)textView:(KKTokenTextView *)textView menuItemsForToken:(KKTextToken *)token;
+- (NSArray *)textView:(KKTokenTextView *)textView menuItemsForSelectionWithRange:(NSRange)range;
+
+#pragma mark Probably Unimplemented
 - (BOOL)textView:(KKTokenTextView *)textView canRemoveToken:(KKTextToken *)token;
 - (void)textView:(KKTokenTextView *)textView didRemoveToken:(KKTextToken *)token;
 
