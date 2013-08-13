@@ -84,7 +84,7 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    __block NSUInteger offset = (text.length == 0 ? -range.length : text.length);
+    __block NSInteger offset = (text.length == 0 ? -range.length : text.length);
     NSString *newlineString = @"\n";
     BOOL isFinishingEditing = self.editingToken && [text isEqualToString:newlineString];
 
@@ -135,8 +135,9 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
     [mutableString replaceCharactersInRange:range withString:text];
 
     STRTokenTextViewAttributedTextFinalizingBlock finalizeBlock = ^(NSString *newText) {
+        NSRange oldSelectedRange = self.selectedRange;
         self.attributedText = [[NSAttributedString alloc] initWithString:newText];
-        self.selectedRange = NSMakeRange(self.selectedRange.location + offset, 0);
+        self.selectedRange = NSMakeRange(oldSelectedRange.location + offset, 0);
     };
 
     if (self.correctsPunctuation)
