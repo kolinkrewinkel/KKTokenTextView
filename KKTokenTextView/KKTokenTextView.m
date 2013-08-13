@@ -448,10 +448,15 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
     else
     {
         KKTextToken *token = [self tokenContainingCharacterIndex:range.location];
-        if (token && ![self NSRange:[self NSRangeFromTextRange:selectedTextRange] isEqualToRange:token.range])
+        if (token && ![self NSRange:range isEqualToRange:token.range])
         {
             [self selectToken:token visiblySelectRange:YES];
             return;
+        }
+
+        if ([self.tokenizationDelegate respondsToSelector:@selector(textView:menuItemsForSelectionWithRange:)])
+        {
+            [[UIMenuController sharedMenuController] setMenuItems:[self.tokenizationDelegate textView:self menuItemsForSelectionWithRange:range]];
         }
 
         [super setSelectedTextRange:selectedTextRange];
