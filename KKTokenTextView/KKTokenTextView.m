@@ -213,12 +213,7 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
 {
     NSString *text = [self.attributedText.string substringToIndex:location];
     NSString *keyPath = nil;
-    NSRange tokenRange = NSMakeRange(0, 0);
-
-    if ([self.tokenizationDelegate respondsToSelector:@selector(textView:lastRangeOfStringToTokenize:keyPathIntention:)])
-    {
-        tokenRange = [self.tokenizationDelegate textView:self lastRangeOfStringToTokenize:text keyPathIntention:&keyPath];
-    }
+    NSRange tokenRange = [self.tokenizationDelegate textView:self lastRangeOfStringToTokenize:text keyPathIntention:&keyPath];
 
     if (tokenRange.length > 0 && tokenRange.location != NSNotFound && [self tokensContainedInRange:tokenRange].count == 0)
     {
