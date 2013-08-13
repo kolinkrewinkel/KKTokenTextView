@@ -324,6 +324,16 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
     });
 }
 
+- (KKTextToken *)tokenifyRangeOfString:(NSRange)range keyPathToStoreExistingTextValue:(NSString *)keyPath
+{
+    KKTextToken *token = [KKTextToken textTokenWithValue:[self.attributedText.string substringWithRange:range] forKeyPath:keyPath range:range];
+    [self.tokens addObject:token];
+
+    self.attributedText = self.attributedText;
+
+    return token;
+}
+
 #pragma mark - Text Manipulation
 
 - (NSDictionary *)defaultAttributes
@@ -454,7 +464,7 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
             return;
         }
 
-        if ([self.tokenizationDelegate respondsToSelector:@selector(textView:menuItemsForSelectionWithRange:)])
+        if (range.length > 0 && [self.tokenizationDelegate respondsToSelector:@selector(textView:menuItemsForSelectionWithRange:)])
         {
             [[UIMenuController sharedMenuController] setMenuItems:[self.tokenizationDelegate textView:self menuItemsForSelectionWithRange:range]];
         }

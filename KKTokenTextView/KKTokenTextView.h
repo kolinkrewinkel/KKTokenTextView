@@ -51,6 +51,7 @@ typedef NS_ENUM(NSInteger, KKTokenTextViewMutationType) {
 #pragma mark - Tokens
 
 - (void)addToken:(KKTextToken *)token;
+- (KKTextToken *)tokenifyRangeOfString:(NSRange)range keyPathToStoreExistingTextValue:(NSString *)keyPath;
 
 #pragma mark Editing
 

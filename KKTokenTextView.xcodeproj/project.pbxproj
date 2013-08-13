@@ -432,7 +432,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../\"";
+				HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/\"";
 				INFOPLIST_FILE = "KKTokenTextViewDemo/KKTokenTextViewDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -448,7 +448,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KKTokenTextViewDemo/KKTokenTextViewDemo-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../\"";
+				HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/\"";
 				INFOPLIST_FILE = "KKTokenTextViewDemo/KKTokenTextViewDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";

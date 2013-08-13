@@ -96,11 +96,16 @@
     return @"representedURL";
 }
 
+- (NSArray *)textView:(KKTokenTextView *)textView menuItemsForSelectionWithRange:(NSRange)range
+{
+    return @[[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Create Link", @"Action menu text to linkify some text.") action:@selector(addURL:)]];
+}
+
 #pragma mark - UIResponder
 
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
-    return (action == @selector(editTokenURL:) || action == @selector(editTokenTitle:));
+    return (action == @selector(editTokenURL:) || action == @selector(editTokenTitle:) || action == @selector(addURL:));
 }
 
 - (void)editTokenURL:(id)sender
@@ -111,6 +116,17 @@
 - (void)editTokenTitle:(id)sender
 {
     [self.textView beginEditingToken:self.textView.selectedToken keyPath:@"title"];
+}
+
+- (void)addURL:(id)sender
+{
+    KKTextToken *token = [self.textView tokenifyRangeOfString:self.textView.selectedRange keyPathToStoreExistingTextValue:@"title"];
+
+    double delayInSeconds = 0.1;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self.textView beginEditingToken:token keyPath:@"representedURL"];
+    });
 }
 
 @end
