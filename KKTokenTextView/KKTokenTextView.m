@@ -403,6 +403,25 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
     return [self.selectedTokens anyObject];
 }
 
+- (NSArray *)orderedTokens
+{
+    return [[self.tokens allObjects] sortedArrayUsingComparator:^NSComparisonResult(KKTextToken *obj1, KKTextToken *obj2) {
+        NSRange range1 = obj1.range;
+        NSRange range2 = obj2.range;
+
+        if (range1.location < range2.location)
+        {
+            return NSOrderedAscending;
+        }
+        else if (range1.location > range2.location)
+        {
+            return NSOrderedDescending;
+        }
+
+        return NSOrderedSame;
+    }];
+}
+
 #pragma mark - Setters
 
 - (void)setAttributedText:(NSAttributedString *)attributedText

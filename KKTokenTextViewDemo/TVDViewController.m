@@ -59,6 +59,8 @@
         }
     }];
 
+    NSLog(@"%@", textView.orderedTokens);
+
     return range;
 }
 
