@@ -47,6 +47,7 @@ typedef NS_ENUM(NSInteger, KKTokenTextViewMutationType) {
 @property (nonatomic, copy) UIColor *typingColor;
 
 @property (nonatomic, readonly, getter = selectedToken) KKTextToken *selectedToken;
+@property (nonatomic, readonly, getter = orderedTokens) NSArray *orderedTokens;
 
 #pragma mark - Tokens
 

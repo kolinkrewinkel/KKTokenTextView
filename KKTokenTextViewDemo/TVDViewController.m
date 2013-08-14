@@ -8,7 +8,7 @@
 
 #import "TVDViewController.h"
 
-@interface TVDViewController ()
+@interface TVDViewController () <UIAlertViewDelegate>
 
 @end
 
@@ -26,14 +26,14 @@
     self.textView.contentInset = UIEdgeInsetsMake([[[UIDevice currentDevice] systemVersion] isEqualToString:@"7.0"] ? 20.f : 0.f, 0.f, 0.f, 0.f);
     [self.view addSubview:self.textView];
 
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Protip", nil) message:NSLocalizedString(@"Tap/hit enter to \"make\" a token. In this demo, it's for URLs. In the future, I may make it so that the text view passively calls the delegate for matches so the return key can be switched to the \"Done\" type, which is a little more intuitive, like in editing mode.\nThis demo also showcases Dickens, another library of mine which handles autocorrecting punctuation to the correct type.", nil) delegate:nil cancelButtonTitle:@"thx man" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Protip", nil) message:NSLocalizedString(@"Tap/hit enter to \"make\" a token. In this demo, it's for URLs. In the future, I may make it so that the text view passively calls the delegate for matches so the return key can be switched to the \"Done\" type, which is a little more intuitive, like in editing mode.\nThis demo also showcases Dickens, another library of mine which handles autocorrecting punctuation to the correct type.", nil) delegate:self cancelButtonTitle:@"thx man" otherButtonTitles:nil];
     [alertView show];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+#pragma mark - UIAlertViewDelegate
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
     [self.textView becomeFirstResponder];
 }
 
