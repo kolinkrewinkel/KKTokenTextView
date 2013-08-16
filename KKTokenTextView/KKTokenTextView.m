@@ -218,7 +218,12 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
 
     if (tokenRange.length > 0 && tokenRange.location != NSNotFound && [self tokensContainedInRange:tokenRange].count == 0)
     {
-        [self addTokenWithRange:tokenRange keyPathDerivation:keyPath];
+        [self tokenifyRangeOfString:tokenRange keyPathToStoreExistingTextValue:keyPath];
+        NSString *string = self.attributedText.string;
+        if (string.length > EndOfRange(tokenRange) && ![[string substringWithRange:NSMakeRange(EndOfRange(tokenRange), 1)] isEqualToString:@" "])
+        {
+            [self insertStringIntoAttributedText:@" " atIndex:EndOfRange(tokenRange) moveCursor:YES];
+        }
     }
     else
     {
@@ -267,12 +272,11 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
 {
     [self.tokens addObject:token];
 
-    if (token.range.location != NSNotFound)
-    {
-        NSMutableAttributedString *mutableAttributedString = [self mutableAttributedText];
-        [mutableAttributedString insertAttributedString:[[NSAttributedString alloc] initWithString:[token stringValueForKeyPath:[self.tokenizationDelegate textView:self tokenKeyPathForTextInsertion:token]]] atIndex:token.range.location];
-        self.attributedText = mutableAttributedString;
-    }
+    NSAssert(token.range.location != NSNotFound, @"What are you doing passing NSNotFound as a location?");
+
+    NSMutableAttributedString *mutableAttributedString = [self mutableAttributedText];
+    [mutableAttributedString insertAttributedString:[[NSAttributedString alloc] initWithString:[token stringValueForKeyPath:[self.tokenizationDelegate textView:self tokenKeyPathForTextInsertion:token]]] atIndex:token.range.location];
+    self.attributedText = mutableAttributedString;
 
     if ([self.tokenizationDelegate respondsToSelector:@selector(textView:didAddToken:mutationType:)])
     {
@@ -487,6 +491,10 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
         if (range.length > 0 && [self.tokenizationDelegate respondsToSelector:@selector(textView:menuItemsForSelectionWithRange:)])
         {
             [[UIMenuController sharedMenuController] setMenuItems:[self.tokenizationDelegate textView:self menuItemsForSelectionWithRange:range]];
+        }
+        else
+        {
+            [[UIMenuController sharedMenuController] setMenuItems:nil];
         }
 
         [super setSelectedTextRange:selectedTextRange];
