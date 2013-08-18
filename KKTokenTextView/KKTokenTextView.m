@@ -344,7 +344,14 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
 - (NSString *)plainString
 {
     NSString *originalString = self.attributedText.string;
-    return [originalString stringByReplacingCharactersInRange:[originalString rangeOfString:@"\n" options:NSBackwardsSearch] withString:@""];
+    NSRange lastNewlineRange = [originalString rangeOfString:@"\n" options:NSBackwardsSearch];
+
+    if (lastNewlineRange.location == NSNotFound)
+    {
+        return originalString;
+    }
+
+    return [originalString stringByReplacingCharactersInRange:lastNewlineRange withString:@""];
 }
 
 - (NSDictionary *)defaultAttributes
