@@ -61,6 +61,8 @@ typedef NS_ENUM(NSInteger, KKTokenTextViewMutationType) {
 
 #pragma mark - Text Manipulation
 
+- (NSString *)plainString;
+
 - (void)appendString:(NSString *)string;
 - (void)appendString:(NSString *)string moveCursor:(BOOL)moveCursor;
 

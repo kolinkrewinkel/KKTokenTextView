@@ -341,6 +341,21 @@ typedef void(^STRTokenTextViewAttributedTextFinalizingBlock)(NSString *newText);
 
 #pragma mark - Text Manipulation
 
+- (NSString *)plainString
+{
+    NSMutableString *workingCopy = [self.attributedText.string mutableCopy];
+    NSString *originalString = self.attributedText.string;
+
+    NSUInteger numberOfNewlines = [workingCopy replaceOccurrencesOfString:@"\n" withString:@"" options:0 range:[workingCopy KK_endToEndRange]];
+
+    if (numberOfNewlines > 1)
+    {
+        return originalString;
+    }
+
+    return [originalString stringByReplacingCharactersInRange:[originalString rangeOfString:@"\n" options:NSBackwardsSearch] withString:@""];
+}
+
 - (NSDictionary *)defaultAttributes
 {
     return @{NSFontAttributeName: self.typingFont, NSForegroundColorAttributeName: self.typingColor};
